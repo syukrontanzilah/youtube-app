@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Alert } from 'react-native'
 import { colors } from '../utils/colors'
 import { Entypo, AntDesign, Ionicons, MaterialIcons } from '@expo/vector-icons'
 
@@ -7,11 +7,13 @@ const Header = () => {
     return (
         <View style={styles.container}>
             <View style={styles.wrapLogo}>
-                <Entypo name="youtube" size={30} color="red" />
+                <Entypo name="youtube" size={28} color="red" />
                 <Text style={styles.text}>YouTube</Text>
             </View>
             <View style={styles.wrapIcon}>
-                <Ionicons name="md-videocam" size={26} color={colors.black1} />
+                <Ionicons
+                onPress={()=>alert('hi')}
+                name="md-videocam" size={26} color={colors.black1} />
                 <Ionicons name="md-search" size={26} color={colors.black1} />
                 <MaterialIcons name="account-circle" size={26} color={colors.black1} />
             </View>

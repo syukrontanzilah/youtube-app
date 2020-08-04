@@ -6,16 +6,19 @@ import { Header, Card, LitleCard } from '../component';
 
 const Home = () => {
     return (
-        <View>
-            <Text>home</Text>
-            <StatusBar />
+        <View style={styles.page}>
+            {/* <StatusBar /> */}
             <Header />
-            <Card />
-            <LitleCard />
+          
         </View>
     )
 }
 
 export default Home
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    page: {
+        flex:1,
+        backgroundColor:'wheat'
+    }
+})

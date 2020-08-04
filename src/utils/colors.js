@@ -1,8 +1,9 @@
 export const colors = {
     white: 'white',
-    black:'black',
+    black1:"#212121",
     default: 'red',
     gray1: '#474747',
     gray2: 'gray',
-    border: 'lightgray'
+    border: 'lightgray',
+    blue:'skyblue'
 }

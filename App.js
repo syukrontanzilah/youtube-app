@@ -16,12 +16,14 @@ const Stack = createStackNavigator()
 const App =() =>{
   return (
     <NavigationContainer>
-     <Stack.Navigator initialRouteName="Home">
+     <Stack.Navigator initialRouteName="Search">
        <Stack.Screen name="Home" component={Home} options={{
          headerShown: false
        }}/>
        <Stack.Screen name="Explore" component={Explore}/>
-       <Stack.Screen name="Search" component={Search}/>
+       <Stack.Screen name="Search" component={Search} options={{
+         headerShown: false
+       }}/>
        <Stack.Screen name="Subscribe" component={Subscribe}/>
        <Stack.Screen name="Video Player" component={VideoPlayer}/>
      </Stack.Navigator>

@@ -5,11 +5,16 @@ import Constant from 'expo-constants'
 import { StatusBar } from 'expo-status-bar';
 import { colors } from '../utils/colors';
 import { LitleCard } from '../component';
+import { useSelector, useDispatch } from 'react-redux'
 
 
-const Search = () => {
+const Search = ({ navigation }) => {
     const [value, setValue] = useState("")
-    const [litleCardData, setLitleCardData] = useState([])
+    // const [litleCardData, setLitleCardData] = useState([])
+    const dispatch = useDispatch()
+    const litleCardData = useSelector(state => {
+        return state
+    })
     const [loading, setLoading] = useState(false)
     const fetchData = () => {
         setLoading(true)
@@ -18,7 +23,8 @@ const Search = () => {
             .then(data => {
                 console.log(data)
                 setLoading(false)
-                setLitleCardData(data.items)
+                dispatch({ type :"add", payload: data.items})
+                // setLitleCardData(data.items)
             })
     }
     return (
@@ -26,7 +32,9 @@ const Search = () => {
             <StatusBar />
             {/* SEARCH BAR */}
             <View style={styles.wrapContent}>
-                <Ionicons name="md-arrow-back" size={26} />
+                <Ionicons
+                    onPress={() => navigation.goBack()}
+                    name="md-arrow-back" size={26} />
                 <TextInput
                     style={styles.input}
                     value={value}

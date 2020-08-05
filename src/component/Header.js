@@ -1,9 +1,11 @@
 import React from 'react'
 import { StyleSheet, Text, View, Alert } from 'react-native'
 import { colors } from '../utils/colors'
+import{useNavigation} from '@react-navigation/native'
 import { Entypo, AntDesign, Ionicons, MaterialIcons } from '@expo/vector-icons'
 
 const Header = ({}) => {
+    const navigation = useNavigation()
     return (
         <View style={styles.container}>
             <View style={styles.wrapLogo}>
@@ -15,13 +17,13 @@ const Header = ({}) => {
                 onPress={()=>alert('hi')}
                 name="md-videocam" size={26} color={colors.black1} />
                 <Ionicons 
+                onPress={()=>navigation.navigate("Search")}
                 name="md-search" size={26} color={colors.black1} />
                 <MaterialIcons name="account-circle" size={26} color={colors.black1} />
             </View>
         </View>
     )
 }
-
 
 export default Header
 

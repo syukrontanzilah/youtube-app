@@ -7,7 +7,7 @@ const Subscribe = () => {
     return (
         <View style={styles.page}>
             <StatusBar/>
-            <Text>subscribe</Text>
+            <Text>Opps.. halaman belum tersedia</Text>
         </View>
     )
 }
@@ -18,6 +18,8 @@ const styles = StyleSheet.create({
     page:{
         flex:1,
         marginTop: Constant.statusBarHeight,
+        justifyContent:'center',
+        alignItems:'center'
 
     }
 })

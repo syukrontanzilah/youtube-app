@@ -1,29 +1,34 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { Entypo, AntDesign, Ionicons, MaterialIcons } from '@expo/vector-icons'
 import { image1, image2 } from '../assets/image';
 import { colors } from '../utils/colors';
+import { useNavigation, } from '@react-navigation/native'
 
 
-const Card = () => {
+
+const Card = (props) => {
+    const navigation = useNavigation()
     return (
-        <View style={styles.container}>
+        <TouchableOpacity
+        onPress={()=>navigation.navigate("Video Player",{
+            videoId: props.videoId, title:props.title, channel:props.channel
+        })}
+        style={styles.container}>
             <View style={styles.wrapImage}>
-                <Image source={{ uri: image1 }} style={styles.image} />
+                <Image source={{ uri: `https://i.ytimg.com/vi/${props.videoId}/hqdefault.jpg`}} style={styles.image} />
             </View>
-
             <View style={styles.wrapDesc}>
                 <View>
-                    <Image source={{ uri: image2 }} style={styles.youtuber} />
+                    <Image source={{ uri: `https://i.ytimg.com/vi/${props.channelId}/default.jpg` }} style={styles.youtuber} />
                 </View>
                 <View style={styles.wrapText}>
-                    <Text numberOfLines={2} style={styles.title}>The Way Of Love - Maher Zain & Mustafa Ceceli</Text>
-                    <Text numberOfLines={1} style={styles.desc}>Maher Zain  - 210jt x ditonton 5 bulan yang lalu</Text>
+                    <Text numberOfLines={2} style={styles.title}>{props.title}</Text>
+                    <Text numberOfLines={1} style={styles.desc}>{props.channel}</Text>
+                    {/* <Text numberOfLines={1} style={styles.desc}>{props.published}</Text> */}
                 </View>
-
             </View>
-
-        </View>
+        </TouchableOpacity>
     )
 }
 

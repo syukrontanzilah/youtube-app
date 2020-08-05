@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet } from 'react-native';
@@ -15,7 +15,6 @@ import { createStore } from 'redux'
 import {reducer} from './src/redux/Reducer'
 
 const store = createStore(reducer)
-
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
 
@@ -63,7 +62,10 @@ const App = () => {
             headerShown: false
           }} />
           <Stack.Screen name="Subscribe" component={Subscribe} />
-          <Stack.Screen name="Video Player" component={VideoPlayer} />
+          <Stack.Screen name="Video Player" component={VideoPlayer} 
+          options={{
+            headerShown: false
+          }}  />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

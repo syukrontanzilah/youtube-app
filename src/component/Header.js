@@ -1,10 +1,10 @@
 import React from 'react'
-import { StyleSheet, Text, View, Alert } from 'react-native'
+import { StyleSheet, Text, View, Alert, TouchableOpacity } from 'react-native'
 import { colors } from '../utils/colors'
-import{useNavigation} from '@react-navigation/native'
+import { useNavigation,} from '@react-navigation/native'
 import { Entypo, AntDesign, Ionicons, MaterialIcons } from '@expo/vector-icons'
 
-const Header = ({}) => {
+const Header = ({ }) => {
     const navigation = useNavigation()
     return (
         <View style={styles.container}>
@@ -14,11 +14,14 @@ const Header = ({}) => {
             </View>
             <View style={styles.wrapIcon}>
                 <Ionicons
-                onPress={()=>alert('hi')}
-                name="md-videocam" size={26} color={colors.black1} />
-                <Ionicons 
-                onPress={()=>navigation.navigate("Search")}
-                name="md-search" size={26} color={colors.black1} />
+                    onPress={() => alert('hi')}
+                    name="md-videocam" size={26} color={colors.black1} />
+                <TouchableOpacity
+                    onPress={() => navigation.navigate("Search")}>
+                    <Ionicons
+                        name="md-search" size={26} color={colors.black1} />
+                </TouchableOpacity>
+
                 <MaterialIcons name="account-circle" size={26} color={colors.black1} />
             </View>
         </View>
@@ -33,8 +36,8 @@ const styles = StyleSheet.create({
         height: 45,
         justifyContent: 'space-between',
         paddingHorizontal: 15,
-        flexDirection:'row',
-        elevation:3
+        flexDirection: 'row',
+        elevation: 3
         // marginTop: Constant.statusBarHeight
     },
     wrapLogo: {
@@ -45,13 +48,13 @@ const styles = StyleSheet.create({
         // color: colors.white,
         fontSize: 22,
         marginLeft: 5,
-        fontWeight:'bold'
+        fontWeight: 'bold'
     },
     wrapIcon: {
         flexDirection: 'row',
         alignItems: 'center',
         width: '30%',
-        justifyContent:'space-between'
+        justifyContent: 'space-between'
 
     }
 })

@@ -1,11 +1,18 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native'
 import { colors } from '../utils/colors'
 import { image1 } from '../assets/image'
+import { useNavigation } from '@react-navigation/native'
+
 
 const LitleCard = (props) => {
+    const navigation = useNavigation()
     return (
-        <View style={styles.container}>
+        <TouchableOpacity
+        onPress={()=>navigation.navigate("Video Player",{
+            videoId: props.videoId, title:props.title, channel:props.channel
+        })}
+        style={styles.container}>
             <View style={styles.wrapVideo}>
                 <Image source={{uri: `https://i.ytimg.com/vi/${props.videoId}/hqdefault.jpg`}} style={styles.image} />
             </View>
@@ -14,7 +21,7 @@ const LitleCard = (props) => {
                 <Text style={styles.desc}>{props.channel}</Text>
                 {/* <Text style={styles.desc}>2 Minggu yang lalu - 5rb x ditonton?</Text> */}
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
